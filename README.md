@@ -16,7 +16,8 @@ A Claude Code plugin for spec-driven feature development. Write a one-liner, get
 ## Installation
 
 ```bash
-/plugin install specforge@marcmallet
+/plugin marketplace add marcmallet/specforge
+/plugin install specforge@marcmallet/specforge
 ```
 
 ## Configuration
