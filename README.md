@@ -157,31 +157,32 @@ Where `<specs-dir>` is the value of `SPECFORGE_SPECS_DIR` from `~/.claude/settin
 
 ## Jira Integration
 
-The `/specforge:jira` command uses the [Jira CLI](https://github.com/ankitpokhrel/jira-cli) to fetch ticket details directly. No API tokens or configuration in `settings.json` required — credentials are handled entirely by the Jira CLI.
+The `/specforge:jira` command uses the [Atlassian CLI (`acli`)](https://developer.atlassian.com/cloud/acli/guides/introduction/) to fetch ticket details directly. No API tokens or configuration in `settings.json` required — credentials are handled entirely by `acli`.
 
 ### Setup
 
-**1. Install the Jira CLI**
+**1. Install the Atlassian CLI**
 
 macOS:
 ```bash
-brew install ankitpokhrel/jira-cli/jira-cli
+brew tap atlassian/homebrew-acli
+brew install acli
 ```
 
-Other platforms: see the [Jira CLI installation docs](https://github.com/ankitpokhrel/jira-cli#installation).
+Other platforms: see the [Atlassian CLI installation docs](https://developer.atlassian.com/cloud/acli/guides/install-acli/).
 
 **2. Authenticate**
 
 ```bash
-jira init
+acli auth login
 ```
 
-Follow the prompts to connect to your Jira instance. You will need your Jira base URL and a personal API token from your Atlassian account settings.
+Follow the prompts to connect to your Jira instance.
 
 **3. Verify it works**
 
 ```bash
-jira issue view PROJ-1234
+acli jira workitem view PROJ-1234
 ```
 
 If that returns your ticket, `/specforge:jira` will work.

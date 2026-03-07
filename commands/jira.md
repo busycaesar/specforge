@@ -1,25 +1,25 @@
 ---
 description: Fetch a Jira ticket and create a feature spec from it automatically
 argument-hint: <ticket-number>
-allowed-tools: Read, Write, Bash(jira *), Bash(which *), Bash(mkdir -p *)
+allowed-tools: Read, Write, Bash(acli *), Bash(which *), Bash(mkdir -p *)
 model: inherit
 ---
 You are creating a feature spec by fetching a Jira ticket.
 
 The ticket number is: $ARGUMENTS
 
-## Step 1 — Check Jira CLI is available
+## Step 1 — Check Atlassian CLI is available
 
-Run `which jira` to check if the Jira CLI is installed.
+Run `which acli` to check if the Atlassian CLI is installed.
 
 If it is not found, stop and tell the user:
-- The Jira CLI is required for this command
-- Install it from: https://github.com/ankitpokhrel/jira-cli
+- The Atlassian CLI (acli) is required for this command
+- Install instructions: https://developer.atlassian.com/cloud/acli/guides/install-macos/
 - Once installed and authenticated, run this command again
 
 ## Step 2 — Fetch the ticket
 
-Run `jira issue view $ARGUMENTS --plain` to fetch the ticket details.
+Run `acli jira workitem view $ARGUMENTS --json` to fetch the ticket details.
 
 If the command returns an error (ticket not found, not authenticated, etc.), stop and show the error clearly. Do not proceed.
 
