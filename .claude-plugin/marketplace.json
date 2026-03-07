@@ -12,7 +12,7 @@
       "name": "specforge",
       "source": "./",
       "description": "Spec-driven feature development workflow",
-      "version": "1.0.0"
+      "version": "1.0.1"
     }
   ]
 }
