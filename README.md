@@ -1,4 +1,4 @@
-# specforge
+# SpecForge
 
 A Claude Code plugin for spec-driven feature development. Write a one-liner, get a full spec, plan, implementation and review — all tracked in one place.
 
@@ -144,7 +144,7 @@ Where `<specs-dir>` is configured via `/specforge:config`, or `.claude/specforge
 
 ## Agents
 
-Specforge ships with generic agents that work for any project out of the box:
+SpecForge ships with generic agents that work for any project out of the box:
 
 | Agent | Role |
 |---|---|
@@ -165,7 +165,7 @@ Phase 3: tests               (after Phase 2)
 
 ### Customising Agents
 
-Specforge automatically detects project-level agents before falling back to the bundled ones. If you create any of the following in your project, they will be used instead:
+SpecForge automatically detects project-level agents before falling back to the bundled ones. If you create any of the following in your project, they will be used instead:
 
 ```
 your-project/

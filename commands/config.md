@@ -26,5 +26,5 @@ Steps:
 }
 ```
 
-4. Confirm to the user that the config has been saved and that all specforge commands in this project will now save to that location
+4. Confirm to the user that the config has been saved and that all SpecForge commands in this project will now save to that location
 5. Suggest they add `.claude/specforge/config.json` to version control if they want teammates to use the same location
