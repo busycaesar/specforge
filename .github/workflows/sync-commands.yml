@@ -20,6 +20,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .cursor/commands/
+          git add -f .cursor/commands/
           git diff --cached --quiet || git commit -m "chore: sync commands to .cursor/commands"
           git push

@@ -1,5 +1,5 @@
 ---
-description: Write or update unit tests for a feature based on the new code
+description: Write or update unit tests for a feature based on the implementation
 argument-hint: <ticket-number>
 allowed-tools: Read, Write, Edit, Bash(git diff *, yarn test*, npm test*)
 model: inherit
