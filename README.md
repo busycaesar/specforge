@@ -253,7 +253,7 @@ SpecForge ships with generic agents that work for any project out of the box:
 | `frontend` | Templates, styles, JavaScript |
 | `shared` | Files that span both backend and frontend e.g. templates needing data bindings and markup |
 | `spec-coverage` | Verifies every requirement was implemented |
-| `code-quality` | Reviews for errors, security, consistency |
+| `code-quality` | Reviews for error handling, security, consistency, naming, complexity, and performance |
 
 The implement command runs them in phases:
 
