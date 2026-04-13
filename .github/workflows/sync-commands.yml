@@ -1,0 +1,25 @@
+name: Sync commands to .cursor/commands
+
+on:
+  push:
+    paths:
+      - "commands/**"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Copy commands to .cursor/commands
+        run: |
+          mkdir -p .cursor/commands
+          cp commands/* .cursor/commands/
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .cursor/commands/
+          git diff --cached --quiet || git commit -m "chore: sync commands to .cursor/commands"
+          git push
