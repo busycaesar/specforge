@@ -19,9 +19,14 @@ Read the following files if they exist:
 - Spec:   <specs-dir>/$ARGUMENTS/spec.md
 - Plan:   <specs-dir>/$ARGUMENTS/plan.md
 - Review: <specs-dir>/$ARGUMENTS/review.md
+- PR:     <specs-dir>/$ARGUMENTS/pr.md
 
 Output a summary showing:
 - Feature name and one-line description
 - Plan status: how many tasks are complete vs total, broken down by [backend], [frontend], [both]
 - Review status: if a review exists, show the requirement coverage summary
-- Next recommended action (plan / implement / review / done)
+- Next recommended action:
+  - If no plan exists → suggest `/specforge:plan $ARGUMENTS`
+  - If plan exists but no review → suggest `/specforge:implement $ARGUMENTS`
+  - If review exists but no pr.md → suggest `/specforge:pr $ARGUMENTS`
+  - If pr.md exists → feature is ready for PR creation
