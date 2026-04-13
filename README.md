@@ -16,6 +16,7 @@
 | `/specforge:plan` | Generate an implementation plan from a spec |
 | `/specforge:implement` | Implement a feature using parallel sub-agents |
 | `/specforge:review` | Review implementation against the spec |
+| `/specforge:pr` | Generate a pull request description from spec, plan and review |
 | `/specforge:status` | Check the current status of a feature |
 
 ## Installation
@@ -143,7 +144,19 @@ The review is saved to `<specs-dir>/PROJ-1234/review.md`.
 
 ---
 
-### 5. Check status — `/specforge:status`
+### 5. Generate a pull request description — `/specforge:pr`
+
+When the feature is ready to ship, this command synthesises the spec, plan, review and git diff into a structured pull request description — title, summary, changes grouped by backend/frontend/shared, spec coverage highlights, suggested test scenarios and any outstanding caveats. The draft is shown to you for confirmation first and only saved once you approve, so you stay in control of what goes on the PR. You can then create the PR directly with `gh pr create` using the saved file as the body.
+
+```bash
+/specforge:pr PROJ-1234
+```
+
+The PR description is saved to `<specs-dir>/PROJ-1234/pr.md`.
+
+---
+
+### 6. Check status — `/specforge:status`
 
 At any point in the workflow you can check where a feature stands. This command reads the spec, plan and review files and gives you a quick summary of task progress broken down by type, review coverage if a review exists, and the next recommended action.
 
@@ -161,6 +174,7 @@ At any point in the workflow you can check where a feature stands. This command 
     spec.md      ← what to build (source of truth)
     plan.md      ← how to build it (tagged checklist)
     review.md    ← what was verified
+    pr.md        ← pull request description
 ```
 
 Where `<specs-dir>` is configured via `/specforge:config`, or `.claude/specforge/` inside your project if not set.
@@ -253,7 +267,7 @@ SpecForge ships with generic agents that work for any project out of the box:
 | `frontend` | Templates, styles, JavaScript |
 | `shared` | Files that span both backend and frontend e.g. templates needing data bindings and markup |
 | `spec-coverage` | Verifies every requirement was implemented |
-| `code-quality` | Reviews for errors, security, consistency |
+| `code-quality` | Reviews for error handling, security, consistency, naming, complexity, and performance |
 
 The implement command runs them in phases:
 
